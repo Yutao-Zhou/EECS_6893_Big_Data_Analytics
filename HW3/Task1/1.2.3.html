@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://d3js.org/d3.v4.js" charset="utf-8"></script>
+
+  <style type="text/css">
+
+    p {
+        font-family: Arial, Helvetica, Sans Serif; 
+        font-size: xx-large;
+        text-indent: 20mm;
+        color:red;  
+      }
+
+</style>
+
+</head>
+
+<body>
+  <script>
+    var width = 400,
+      height = 400,
+      radius = (Math.min(width, height)-50) / 3;
+
+    var color = d3.scaleOrdinal(d3.schemeCategory10);
+
+    var arc = d3.arc()
+      .outerRadius(radius - 10)
+      .innerRadius(0);
+
+    var pie = d3.pie()
+      .sort(null)
+      .value(function(d) {
+        return d.value;
+      });
+
+    var svg = d3.select("body")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height)
+          .append("g")
+          .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+    svg.append("text")
+        .attr("x", 0)             
+        .attr("y", width / 2)
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .style("text-decoration", "underline")  
+        .text("Pie Chart of Weather in Seattle");
+
+    d3.csv("https://raw.githubusercontent.com/vega/vega/main/docs/data/seattle-weather.csv", function(error, csv_data) {
+      
+      //reduce by key; key : weather; value: count
+      var data = d3.nest()
+        .key(function(d) {
+          return d.weather;
+        })
+        .rollup(function(d) {
+          return d3.sum(d, function(g) {
+            return 1;
+          });
+        }).entries(csv_data);
+
+      //total count for percentage calculation
+      var total = d3.sum(data, function(d) { 
+              return d.value; 
+            });
+
+      //percentage calculation
+      data.forEach(function(d) {
+                d.percentage = (d.value  / total * 100).toFixed(2);
+        });
+
+      var g = svg.selectAll(".arc")
+        .data( pie(data) )
+        .enter()
+          .append("g")
+          .attr("class", "arc");
+
+      g.append("path")
+        .attr("d", arc)
+        .style("fill", function(d) {
+          return color(d.data.key);
+        });
+
+      g.append("text")
+        .attr("transform", function(d) {
+          var _d = arc.centroid(d);
+          _d[0] *= 2.7;
+          _d[1] *= 2.7;
+          return "translate(" + _d + ")" 
+
+        })
+        .attr("dy", ".35em")
+        .style("text-anchor", "middle")
+        .text(function(d) {
+          return d.data.key;
+        });
+      
+      g.append("text")
+        .attr("transform", function(d) {
+          var _d = arc.centroid(d);
+          _d[0] *= 2.7;
+          _d[1] *= 2.7;
+          return "translate(" + _d + ")" 
+
+        })
+        .attr("dy", "2.0em")
+        .style("text-anchor", "middle")
+        .text(function(d) {
+          return d.data.percentage + '%';
+        });
+
+
+    });
+  </script>
+
+  <p> Main Observation </p>
+    <ol>
+      <li>observation</li>
+      <li>...</li>
+      <li>...</li>
+    </ol>
+</body>
+
+</html>

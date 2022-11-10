@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<!-- Load d3.js you can use ither version if you want -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<!-- Create a div where the graph will take place -->
+<div id="dataviz"></div>
+
+<script>
+
+// set the dimensions and margins of the graph
+// You can change these values these are just sample values given
+var margin = {top: 20, right: 50, bottom: 50, left: 60},
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select("#dataviz")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+// uncomment the function and complete this function to plot required graphs
+// d3.csv("link to dataset", function(data) {
+
+        // Your code here
+
+// });
+</script>

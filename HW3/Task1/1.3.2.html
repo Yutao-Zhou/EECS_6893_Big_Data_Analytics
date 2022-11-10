@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="https://d3js.org/d3.v4.js"></script>
+<div id="data_select_histogram"></div>
+
+<body>
+  <label>Data </label>
+  <select id="option">
+      <option value="wind" selected>wind</option>
+      <option value="precipitation">precipitation</option>
+      <option value="temp_max">temp max</option>
+      <option value="temp_min">temp min</option>
+  </select>
+
+  <script>
+  var margin = {top: 20, right: 50, bottom: 50, left: 60},
+      width = 460 - margin.left - margin.right,
+      height = 400 - margin.top - margin.bottom;
+
+  var svg = d3.select("#data_select_histogram")
+    .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+  
+  var container = svg
+    .append("g")
+      .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
+
+  function histogram(option) {
+    d3.csv("https://raw.githubusercontent.com/vega/vega/main/docs/data/seattle-weather.csv", function(data) {
+
+      // pick data by option
+      const xFeature = (d) => d[option];
+      const yFeature = (d) => d.length;
+
+      // set up xticks and yticks
+      var x = d3.scaleLinear()
+        .domain(d3.extent(data, xFeature))
+        .range([0, width])
+        .nice();
+
+      // draw bar x axis and x title
+      container.append("g")             
+        .attr("transform",
+              "translate(" + 0 + " ," + height + ")")
+        .call(d3.axisBottom(x));
+
+      container.append("text")             
+          .attr("transform",
+                "translate(" + (width/2) + " ," + 
+                               (height + margin.top + 20) + ")")
+          .style("text-anchor", "middle")
+          .text(option);
+
+      var histogram = d3.histogram()
+          .value(xFeature)
+          .domain(x.domain())
+          .thresholds(10);
+
+      var bins = histogram(data);
+
+      var y = d3.scaleLinear()
+        .domain([0, d3.max(bins, yFeature)])
+        .range([height, 0])
+
+      // draw bar y axis and y title
+      container.append("g")
+        .call(d3.axisLeft(y));
+
+      container.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin.left)
+        .attr("x", 0 - (height / 2))
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text('Number of days');
+
+      //draw bars 
+      bars = container
+      .append("g").selectAll("rect")
+        .data(bins)
+        .enter()
+        .append("rect")
+        .attr("height", function(d) { return height - y(yFeature(d)); })
+        .attr('width', function(d) { return x(d.x1) - x(d.x0) -1 ; })
+        .attr("x", (d) => x(d.x0) )
+        .attr("y", (d) => y(yFeature(d)) )
+        .style("fill", "#69b3a2")
+
+  });
+
+  }
+
+  d3.select('#option')
+    .on('change', function (e) {
+      // clear the container for replotting
+      container.selectAll('*').remove();
+      histogram(this.value);
+    });
+
+  histogram('wind')
+
+  </script>
+</body>
+</html>

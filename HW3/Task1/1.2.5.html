@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+  <head>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <link rel="stylesheet" href="1.2.5.css">
+  </head>
+
+  <body>
+
+  <script>
+
+    d3.csv("https://raw.githubusercontent.com/vega/vega/main/docs/data/seattle-weather.csv", function(data) {
+        time = (data.map(function(d) { return d3.timeParse("%Y-%m-%d")(d.date)}))
+
+        //#### Start of 1.2.1 histogram with bin 10 ####
+
+        var marginHis10 = {top: 20, right: 50, bottom: 50, left: 60},
+          widthHis10 = 460 - marginHis10.left - marginHis10.right,
+          heightHis10 = 400 - marginHis10.top - marginHis10.bottom;
+
+        var svg = d3.select("body")
+          .append("svg")
+            .attr("width", widthHis10 + marginHis10.left + marginHis10.right)
+            .attr("height", heightHis10 + marginHis10.top + marginHis10.bottom)
+          .append("g")
+            .attr("transform",
+                  "translate(" + marginHis10.left + "," + marginHis10.top + ")");
+
+        var x = d3.scaleLinear()
+          .domain([0,10])
+          .range([0, widthHis10]);
+        svg.append("g")
+          .attr("transform", "translate(0," + heightHis10 + ")")
+          .call(d3.axisBottom(x));
+        svg.append("text")             
+          .attr("transform",
+                "translate(" + (widthHis10/2) + " ," + 
+                               (heightHis10 + marginHis10.top + 20) + ")")
+          .style("text-anchor", "middle")
+          .text("Wind Speed");
+
+        var histogram = d3.histogram()
+          .value(function(d) { return d.wind; })
+          .domain(x.domain())
+          .thresholds(x.ticks(10));
+
+        var bins = histogram(data);
+
+        var y = d3.scaleLinear()
+          .domain([0, d3.max(bins, function(d) { return d.length; })])
+          .range([heightHis10, 0])
+        svg.append("g")
+          .text("Number of days")
+          .call(d3.axisLeft(y));
+        svg.append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 0 - marginHis10.left)
+          .attr("x",0 - (heightHis10 / 2))
+          .attr("dy", "1em")
+          .style("text-anchor", "middle")
+          .text("Number of days");  
+
+        svg.selectAll("rect")
+          .data(bins)
+          .enter()
+          .append("rect")
+            .attr("x", 1)
+            .attr("transform", function(d) { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; })
+            .attr("width", function(d) { return x(d.x1) - x(d.x0) - 1 ; })
+            .attr("height", function(d) { return heightHis10 - y(d.length); })
+            .style("fill", "#69b3a2")
+
+        //#### Start of 1.2.2 histogram with bin 25 ####
+
+        var marginHis25 = {top: 20, right: 50, bottom: 50, left: 60},
+            widthHis25 = 460 - marginHis25.left - marginHis25.right,
+            heightHis25 = 400 - marginHis25.top - marginHis25.bottom;
+
+        var svg = d3.select("body")
+          .append("svg")
+            .attr("width", widthHis25 + marginHis25.left + marginHis25.right)
+            .attr("height", heightHis25 + marginHis25.top + marginHis25.bottom)
+          .append("g")
+            .attr("transform",
+                  "translate(" + marginHis25.left + "," + marginHis25.top + ")");
+
+        var x = d3.scaleLinear()
+          .domain([0,10])
+          .range([0, widthHis25]);
+        svg.append("g")
+          .attr("transform", "translate(0," + heightHis25 + ")")
+          .call(d3.axisBottom(x));
+        svg.append("text")             
+          .attr("transform",
+                "translate(" + (widthHis25/2) + " ," + 
+                               (heightHis25 + marginHis25.top + 20) + ")")
+          .style("text-anchor", "middle")
+          .text("Wind Speed");
+
+        var histogram = d3.histogram()
+          .value(function(d) { return d.wind; })
+          .domain(x.domain())
+            .thresholds(x.ticks(25));
+
+        var bins = histogram(data);
+
+        var y = d3.scaleLinear()
+          .domain([0, d3.max(bins, function(d) { return d.length; })])
+          .range([heightHis25, 0])
+        svg.append("g")
+          .text("Number of days")
+          .call(d3.axisLeft(y));
+        svg.append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 0 - marginHis25.left)
+          .attr("x",0 - (heightHis25 / 2))
+          .attr("dy", "1em")
+          .style("text-anchor", "middle")
+          .text("Number of days");  
+
+        svg.selectAll("rect")
+          .data(bins)
+          .enter()
+          .append("rect")
+            .attr("x", 1)
+            .attr("transform", function(d) { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; })
+            .attr("width", function(d) { return x(d.x1) - x(d.x0) -1 ; })
+            .attr("height", function(d) { return heightHis25 - y(d.length); })
+            .style("fill", "#69b3a2")
+
+        //#### Start of 1.2.3 pie chart ####
+
+        var widthPie = 400,
+          heightPie = 400,
+          radius = (Math.min(widthPie, heightPie)-50) / 3;
+
+        var color = d3.scaleOrdinal(d3.schemeCategory10);
+
+        var arc = d3.arc()
+          .outerRadius(radius - 10)
+          .innerRadius(0);
+
+        var pie = d3.pie()
+          .sort(null)
+          .value(function(d) {
+            return d.value;
+          });
+
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", widthPie)
+            .attr("height", heightPie)
+              .append("g")
+              .attr("transform", "translate(" + widthPie / 2 + "," + heightPie / 2 + ")");
+
+        svg.append("text")
+            .attr("x", 0)             
+            .attr("y", widthPie / 2)
+            .attr("text-anchor", "middle")  
+            .style("font-size", "16px") 
+            .style("text-decoration", "underline")  
+            .text("Pie Chart of Weather in Seattle");
+
+
+          
+        //reduce by key; key : weather; value: count
+        var dataPie = d3.nest()
+          .key(function(d) {
+            return d.weather;
+          })
+          .rollup(function(d) {
+            return d3.sum(d, function(g) {
+              return 1;
+            });
+          }).entries(data);
+
+        //total count for percentage calculation
+        var total = d3.sum(dataPie, function(d) { 
+                return d.value; 
+              });
+
+        //percentage calculation
+        dataPie.forEach(function(d) {
+                  d.percentage = (d.value  / total * 100).toFixed(2);
+          });
+
+        var g = svg.selectAll(".arc")
+          .data( pie(dataPie) )
+          .enter()
+            .append("g")
+            .attr("class", "arc");
+
+        g.append("path")
+          .attr("d", arc)
+          .style("fill", function(d) {
+            return color(d.data.key);
+          });
+
+        g.append("text")
+          .attr("transform", function(d) {
+            var _d = arc.centroid(d);
+            _d[0] *= 2.7;
+            _d[1] *= 2.7;
+            return "translate(" + _d + ")" 
+
+          })
+          .attr("dy", ".35em")
+          .style("text-anchor", "middle")
+          .text(function(d) {
+            return d.data.key;
+          });
+        
+        g.append("text")
+          .attr("transform", function(d) {
+            var _d = arc.centroid(d);
+            _d[0] *= 2.7;
+            _d[1] *= 2.7;
+            return "translate(" + _d + ")" 
+
+          })
+          .attr("dy", "2.0em")
+          .style("text-anchor", "middle")
+          .text(function(d) {
+            return d.data.percentage + '%';
+          });
+
+        //#### Start of 1.2.4 line graph ####
+
+        var marginLine = {top: 20, right: 50, bottom: 50, left: 60},
+            widthLine = 600 - marginLine.left - marginLine.right,
+            heightLine = 337.5 - marginLine.top - marginLine.bottom;
+
+        var svg = d3.select("body")
+          .append("svg")
+            .attr("width", widthLine + marginLine.left + marginLine.right)
+            .attr("height", heightLine + marginLine.top + marginLine.bottom)
+          .append("g")
+            .attr("transform",
+                  "translate(" + marginLine.left + "," + marginLine.top + ")");
+
+
+        var x = d3.scaleTime()
+          .domain(d3.extent(data, function(d) { return d3.timeParse("%Y-%m-%d")(d.date); }))
+          .range([ 0, widthLine ]);
+        svg.append("g")
+          .attr("transform", "translate(0," + heightLine + ")")
+          .call(d3.axisBottom(x));
+        svg.append("text")             
+          .attr("transform",
+                "translate(" + (widthLine/2) + " ," + 
+                               (heightLine + marginLine.top + 20) + ")")
+          .style("text-anchor", "middle")
+          .text("Date");
+
+        var y = d3.scaleLinear()
+          .domain([0, d3.max(data, function(d) { return +d.precipitation; })])
+          .range([ heightLine, 0 ]);
+        svg.append("g")
+          .call(d3.axisLeft(y));
+        svg.append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 0 - marginLine.left)
+          .attr("x",0 - (heightLine / 2))
+          .attr("dy", "1em")
+          .style("text-anchor", "middle")
+          .text("Precipitation");
+
+        svg.append("path")
+          .datum(data)
+          .attr("fill", "none")
+          .attr("stroke", "steelblue")
+          .attr("stroke-width", 1.5)
+          .attr("d", d3.line()
+            .x(function(d) { return x(d3.timeParse("%Y-%m-%d")(d.date)) })
+            .y(function(d) { return y(d.precipitation) })
+            );
+
+      });
+
+  </script>
+
+  <p>
+    As we can see, the wind speed in Seattle is 1-4 most of the time. The distribution is mainly binomial. About 44% of the time is sunny and another 44% of the time is raining. So, most of the time Seattle is wither sunny or rainy. Most of the precipitation happens in spring and summer. Adding up all of the observations, we could conclude that Seattle is a city that has the characteristics of both the Mediterranean zone and oceanic zone.
+  </p>
+  </body>
+
+</html>
