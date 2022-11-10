@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<div style='max-width: 900px; overflow-x: auto; padding: 0px; margin: 0px;' id='network'></div>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="3.1&3.2.js"></script>
+
+<style>
+body{ font: Arial 12px; text-align: center;}
+.link {
+  stroke: #ccc;
+}
+.node text {
+  pointer-events: none;
+  font: sans-serif;
+}
+</style>
+
+</head>
+<body>
+
+<script type="text/javascript">
+
+  //Set margins and sizes
+  var margin = {
+  top: 20,
+  bottom: 50,
+  right: 30,
+  left: 50
+  };
+
+  var width = 600 - margin.left - margin.right;
+  var height = 500 - margin.top - margin.bottom;
+
+  //Load Color Scale
+  var color = d3.scaleOrdinal(d3.schemeCategory20);
+
+    //Create an SVG element and append it to the DOM
+  var svgElement = d3.select("#network")
+      .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+        .attr("transform", `translate(${margin.left}, ${margin.top})`); 
+
+  var fisheye = d3.fisheye.circular()
+      .radius(50)
+      .distortion(5);
+
+  svgElement.append('defs').append('marker')
+    .attr("id",'arrowhead')
+    .attr('viewBox','-0 -5 10 10') //the bound of the SVG viewport for the current SVG fragment. defines a coordinate system 10 wide and 10 high starting on (0,-5)
+     .attr('refX',24) // x coordinate for the reference point of the marker. If circle is bigger, this need to be bigger.
+     .attr('refY',0)
+     .attr('orient','auto')
+        .attr('markerWidth',6)
+        .attr('markerHeight',6)
+        .attr('xoverflow','visible')
+    .append('svg:path')
+    .attr('d', 'M 0,-5 L 10 ,0 L 0,5')
+    .attr('fill', '#999')
+    .style('stroke','none');
+
+    //Load External Data
+    d3.json("https://raw.githubusercontent.com/d3/d3-plugins/master/graph/data/miserables.json", function(dataset){
+    // d3.csv("https://gist.githubusercontent.com/timelyportfolio/5049980/raw/66a239b4aa325c05c7a19bd96bf093632591e809/les_mis.csv", function(dataset){
+    //Extract data from dataset
+    console.log(dataset)
+
+
+    var simulation = d3.forceSimulation(dataset.nodes)
+      .force("charge", d3.forceManyBody())
+      .force("link", d3.forceLink(dataset.links))
+      .force("center", d3.forceCenter());
+
+    var link = svgElement.selectAll(".links")
+        .data(dataset.links)
+        .enter()
+        .append("line")
+        .attr("class", "links")
+        .attr("stroke","#999")
+        .attr("stroke-width","2px")
+        .style("opacity", 0.8)
+        .attr("class", "links")
+        .attr('marker-end','url(#arrowhead)')
+
+    var edgepaths = svgElement.selectAll(".edges") //make path go along with the link provide position for link labels
+          .data(dataset.links)
+          .enter()
+          .append('path')
+          .attr('class', 'edge')
+          .attr('fill-opacity', 0)
+          .attr('stroke-opacity', 0)
+          .attr('id', function (d, i) {return 'edgepath' + i})
+          .style("pointer-events", "none");
+
+    // Initialize the nodes
+    var node = svgElement.selectAll(".nodes")
+        .data(dataset.nodes)
+        .enter()
+        .append("g")
+        .attr("class", "nodes")
+
+    node.call(d3.drag() //sets the event listener for the specified typenames and returns the drag behavior.
+            .on("start", dragstarted) //start - after a new pointer becomes active (on mousedown or touchstart).
+            .on("drag", dragged)      //drag - after an active pointer moves (on mousemove or touchmove).
+            .on("end", dragended)
+        );
+
+    node.append("circle")
+        .attr("r", d=> 12)//+ d.runtime/20 )
+        .attr("id",d=> "circle"+d.id)
+        .style("stroke", "grey")
+        .style("stroke-opacity",0.3)
+        .style("fill", d => color(d.group))
+
+    node.append("text")
+        .attr("dy", 4)
+        .attr("dx", -15)
+        .text(d => d.name);
+
+    svgElement.on("mousemove", function() {
+      fisheye.focus(d3.mouse(this));
+
+      node.each(function(d) { d.fisheye = fisheye(d); })
+
+      node.selectAll("circle")
+          .attr("vx", function(d) { return d.fisheye.x; })
+          .attr("vy", function(d) { return d.fisheye.y; })
+          .attr("r", function(d) { return d.fisheye.z * 4.5; });
+
+      node.selectAll("text")
+          .attr("dx", function(d) { return d.fisheye.x - d.x; })
+          .attr("dy", function(d) { return d.fisheye.y - d.y; });
+
+      link.attr("x1", function(d) { return d.source.fisheye.x; })
+          .attr("y1", function(d) { return d.source.fisheye.y; })
+          .attr("x2", function(d) { return d.target.fisheye.x; })
+          .attr("y2", function(d) { return d.target.fisheye.y; });
+    });
+
+ //Listen for tick events to render the nodes as they update in your Canvas or SVG.
+ simulation
+          .nodes(dataset.nodes)
+          .on("tick", ticked);
+// 
+  simulation.force("link")
+          .links(dataset.links);
+
+  
+// This function is run at each iteration of the force algorithm, updating the nodes position (the nodes data array is directly manipulated).
+function ticked() {
+  link.attr("x1", d => d.source.x)
+      .attr("y1", d => d.source.y)
+      .attr("x2", d => d.target.x)
+      .attr("y2", d => d.target.y);
+
+  node.attr("transform", d => `translate(${d.x},${d.y})`);
+
+  edgepaths.attr('d', d => 'M ' + d.source.x + ' ' + d.source.y + ' L ' + d.target.x + ' ' + d.target.y);
+}
+
+//When the drag gesture starts, the targeted node is fixed to the pointer
+//The simulation is temporarily "heated" during interaction by setting the target alpha to a non-zero value.
+ function dragstarted(d) {
+      if (!d3.event.active) simulation.alphaTarget(0.3).restart();//sets the current target alpha to the specified number in the range [0,1].
+      d.fy = d.y; //fx - the node's fixed x-position. Original is null.
+      d.fx = d.x; //fy - the node's fixed y-position. Original is null.
+  }
+
+  //When the drag gesture starts, the targeted node is fixed to the pointer
+  function dragged(d) {
+    d.fx = d3.event.x;
+    d.fy = d3.event.y;
+  }
+
+  function dragended(d) {
+      if (!d3.event.active) simulation.alphaTarget(0);
+      d.fx = null;
+      d.fy = null;
+    }
+});
+
+</script>
+</body>
+</html>
