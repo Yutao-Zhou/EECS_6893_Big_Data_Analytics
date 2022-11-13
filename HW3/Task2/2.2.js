@@ -84,7 +84,8 @@
         var name = ["70", "71", "72", "73", "74", "75","76", "77", "78", "79", "80", "81","82"]
         pieData.forEach(function(d) {
           svg.append("circle").attr("cx",width / 2 - 40).attr("cy",-width / 2 + 50 +counter * 15).attr("r", 6).style("fill", c[counter])
-          svg.append("text").attr("x", width / 2 - 30).attr("y", -width / 2 + 50 +counter * 15).text(name[counter]).style("font-size", "15px").attr("alignment-baseline","middle")
+          svg.append("text").attr("x", width / 2 - 30).attr("y", -width / 2 + 50 +counter * 15).text(name[counter])
+              .style("font-size", "15px").attr("alignment-baseline","middle")
           counter = counter + 1
         });
 
@@ -177,8 +178,10 @@
               .style("font-weight", "bold")
               .text("Line Graph of Model Year vs Total Number of Cylinders");
 
-            svg.append("line").attr("x1", width - 110).attr("y1", 10).attr("x2", width - 80).attr("y2", 10).style("stroke", "steelblue").style("stroke-width", 3)
-            svg.append("text").attr("x", width - 70).attr("y", 10).text("Precipitation").style("font-size", "15px").attr("alignment-baseline","middle")
+            svg.append("line").attr("x1", width - 110).attr("y1", 10).attr("x2", width - 80).attr("y2", 10).style("stroke", "steelblue")
+                .style("stroke-width", 3)
+            svg.append("text").attr("x", width - 70).attr("y", 10).text("Precipitation").style("font-size", "15px")
+                .attr("alignment-baseline","middle")
         
         var parseTime = d3.timeParse("%y");
         lineGraph.forEach(function(d) {d.key = parseTime(d.key)})
