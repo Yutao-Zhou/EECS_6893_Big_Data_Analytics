@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+
+<head>
+    <link rel="stylesheet" href="3.1&3.2.css">
+    <script src="http://d3js.org/d3.v3.js"></script>
+    <script src="3.1&3.2.js"></script>
+</head>
+
+<body>
+    
+    <script>
+
+        var width = 800,
+            height = 450;
+
+        var color = d3.scale.category20();
+
+        var force = d3.layout.force()
+            .charge(-120)
+            .linkDistance(30)
+            .size([width, height]);
+
+        var svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height);
+            
+        var fisheye = d3.fisheye.circular()
+          .radius(50)
+          .distortion(5);
+
+        d3.csv("https://gist.githubusercontent.com/timelyportfolio/5049980/raw/66a239b4aa325c05c7a19bd96bf093632591e809/les_mis.csv", function (data) {
+
+            graph = { "nodes": [], "links": [] };
+
+            data.forEach(function (d) {
+                graph.nodes.push({ "character": d.source, "group": +d.groupsource });
+                graph.nodes.push({ "character": d.target, "group": +d.grouptarget });
+
+                graph.links.push({ "source": d.source, "target": d.target, "value": +d.value });
+            });
+
+            var nodesMap = d3.nest()
+                                .key(function (d) { return d.character; })
+                                .rollup(function (d) { return { "character": d[0].character, "group": d[0].group }; })
+                                .map(graph.nodes);
+
+            graph.nodes = d3.keys(d3.nest()
+                                 .key(function (d) { return d.character; })
+                                 .map(graph.nodes));
+
+            graph.links.forEach(function (d, i) {
+                graph.links[i].source = graph.nodes.indexOf(graph.links[i].source);
+                graph.links[i].target = graph.nodes.indexOf(graph.links[i].target);
+            });
+
+            graph.nodes.forEach(function (d,i) { graph.nodes[i]={ "character": nodesMap[d].character, "group": nodesMap[d].group }; })
+
+            force
+              .nodes(graph.nodes)
+              .links(graph.links)
+              .start();
+
+            var link = svg.selectAll(".link")
+                .data(graph.links)
+                .enter()
+                .append("line")
+                    .attr("class", "link")
+                    .style("stroke-width", function (d) { return Math.sqrt(d.value); });
+
+            var node = svg.selectAll(".nodes")
+                .data(graph.nodes)
+                .enter()
+                .append("g")
+                    .attr("class", "nodes")
+                    .call(force.drag);
+
+            node.append("text")
+                    .attr("dy", -10)
+                    .attr("dx",-13)
+                    .style("font-size", "6px")
+                    .style("text-align", "center")
+                    .text(d => d.character);
+
+            node.append("circle")
+                    .attr("r", d=> 6)
+                    .attr("id",d=> "circle"+d.id)
+                    .style("stroke", "grey")
+                    .style("stroke-opacity",0.3)
+                    .style("fill", d => color(d.group))
+
+            svg.on("mousemove", function() {
+                fisheye.focus(d3.mouse(this));
+
+                node.each(function(d) { d.fisheye = fisheye(d); })
+
+                node.selectAll("circle")
+                  .attr("vx", function(d) { return d.fisheye.x; })
+                  .attr("vy", function(d) { return d.fisheye.y; })
+                  .attr("r", function(d) { return d.fisheye.z * 4.5; });
+
+                node.selectAll("text")
+                  .attr("dx", function(d) { return d.fisheye.x - d.x; })
+                  .attr("dy", function(d) { return d.fisheye.y - d.y; });
+
+                link
+                    .attr("x1", function(d) { return d.source.fisheye.x; })
+                    .attr("y1", function(d) { return d.source.fisheye.y; })
+                    .attr("x2", function(d) { return d.target.fisheye.x; })
+                    .attr("y2", function(d) { return d.target.fisheye.y; });
+            });
+
+            force.on("tick", function () {
+                link
+                    .attr("x1", function (d) { return d.source.x; })
+                    .attr("y1", function (d) { return d.source.y; })
+                    .attr("x2", function (d) { return d.target.x; })
+                    .attr("y2", function (d) { return d.target.y; });
+
+                node.attr("transform", d => `translate(${d.x},${d.y})`);
+            });
+        });
+
+    </script>
+
+<p>
+    I see there are multiple clusters or groups that each of them are represented in different colors. People in the same group are generally more connected, meaning there are more edges amoung members in the same gorup. Usually, there is one or a few people in one gourp that are resonposible for connect with other groups.
+</p>
+</body>
+
+</html>
