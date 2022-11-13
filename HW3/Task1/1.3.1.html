@@ -22,6 +22,17 @@ var svg = d3.select("#bin_select_histogram")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
+    svg.append("text")
+      .attr("x", width / 2)             
+      .attr("y", -8)
+      .attr("text-anchor", "middle")  
+      .style("font-size", "16px")
+      .style("font-weight", "bold")
+      .text("Histogram With Selectable Bin Size");
+
+    svg.append("circle").attr("cx",width - 110).attr("cy",10).attr("r", 6).style("fill", "#69b3a2")
+    svg.append("text").attr("x", width - 100).attr("y", 10).text("Wind Speed").style("font-size", "15px").attr("alignment-baseline","middle")
+
 d3.csv("https://raw.githubusercontent.com/vega/vega/main/docs/data/seattle-weather.csv", function(data) {
     var x = d3.scaleLinear()
       .domain([0, 10])

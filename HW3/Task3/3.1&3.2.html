@@ -25,6 +25,14 @@
         var svg = d3.select("body").append("svg")
             .attr("width", width)
             .attr("height", height);
+
+            svg.append("text")
+              .attr("x", width / 2)             
+              .attr("y", 20)
+              .attr("text-anchor", "middle")  
+              .style("font-size", "16px")
+              .style("font-weight", "bold")
+              .text("Network Graph For Character In Les Miserables");
             
         var fisheye = d3.fisheye.circular()
           .radius(50)

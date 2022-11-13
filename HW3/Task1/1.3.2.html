@@ -20,7 +20,18 @@
   var svg = d3.select("#data_select_histogram")
     .append("svg")
       .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
+      .attr("height", height + margin.top + margin.bottom);
+
+      svg.append("text")
+        .attr("x", width / 2 + 30)             
+        .attr("y", 15)
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px")
+        .style("font-weight", "bold")
+        .text("Histogram With Selectable Variable");
+
+      svg.append("circle").attr("cx",width - 40).attr("cy",30).attr("r", 6).style("fill", "#69b3a2")
+      svg.append("text").attr("x", width - 20).attr("y", 30).text("Wind Speed").style("font-size", "15px").attr("alignment-baseline","middle")
   
   var container = svg
     .append("g")

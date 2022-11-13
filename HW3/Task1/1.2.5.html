@@ -27,6 +27,17 @@
             .attr("transform",
                   "translate(" + marginHis10.left + "," + marginHis10.top + ")");
 
+        svg.append("text")
+            .attr("x", widthHis10 / 2)             
+            .attr("y", -8)
+            .attr("text-anchor", "middle")  
+            .style("font-size", "16px")
+            .style("font-weight", "bold")
+            .text("Histogram With Bin Of 10");
+
+        svg.append("circle").attr("cx",widthHis10 - 110).attr("cy",10).attr("r", 6).style("fill", "#69b3a2")
+        svg.append("text").attr("x", widthHis10 - 100).attr("y", 10).text("Wind Speed").style("font-size", "15px").attr("alignment-baseline","middle")
+
         var x = d3.scaleLinear()
           .domain([0,10])
           .range([0, widthHis10]);
@@ -84,6 +95,17 @@
           .append("g")
             .attr("transform",
                   "translate(" + marginHis25.left + "," + marginHis25.top + ")");
+
+        svg.append("text")
+            .attr("x", widthHis25 / 2)             
+            .attr("y", -8)
+            .attr("text-anchor", "middle")  
+            .style("font-size", "16px")
+            .style("font-weight", "bold")
+            .text("Histogram With Bin Of 25");
+
+        svg.append("circle").attr("cx",widthHis10 - 110).attr("cy",10).attr("r", 6).style("fill", "#69b3a2")
+        svg.append("text").attr("x", widthHis10 - 100).attr("y", 10).text("Wind Speed").style("font-size", "15px").attr("alignment-baseline","middle")
 
         var x = d3.scaleLinear()
           .domain([0,10])
@@ -156,13 +178,11 @@
 
         svg.append("text")
             .attr("x", 0)             
-            .attr("y", widthPie / 2)
+            .attr("y", -widthPie / 2 + 30)
             .attr("text-anchor", "middle")  
-            .style("font-size", "16px") 
-            .style("text-decoration", "underline")  
+            .style("font-size", "16px")
+            .style("font-weight", "bold")
             .text("Pie Chart of Weather in Seattle");
-
-
           
         //reduce by key; key : weather; value: count
         var dataPie = d3.nest()
@@ -184,6 +204,15 @@
         dataPie.forEach(function(d) {
                   d.percentage = (d.value  / total * 100).toFixed(2);
           });
+
+        var counter = 0
+        var c = ["rgb(31, 119, 180)","rgb(255, 127, 14)","rgb(44, 160, 44)","rgb(214, 39, 40)","rgb(148, 103, 189)"]
+        var name = ["drizzle", "rain", "sun", "snow", "fog"]
+        dataPie.forEach(function(d) {
+          svg.append("circle").attr("cx",widthPie / 2 - 110).attr("cy",-widthPie / 2 + 50 +counter * 15).attr("r", 6).style("fill", c[counter])
+          svg.append("text").attr("x", widthPie / 2 - 100).attr("y", -widthPie / 2 + 50 +counter * 15).text(name[counter]).style("font-size", "15px").attr("alignment-baseline","middle")
+          counter = counter + 1
+        });
 
         var g = svg.selectAll(".arc")
           .data( pie(dataPie) )
@@ -239,6 +268,16 @@
             .attr("transform",
                   "translate(" + marginLine.left + "," + marginLine.top + ")");
 
+        svg.append("text")
+            .attr("x", widthLine / 2)             
+            .attr("y", -8)
+            .attr("text-anchor", "middle")  
+            .style("font-size", "16px")
+            .style("font-weight", "bold")
+            .text("Line Graph of Precipitation vs Date");
+
+        svg.append("line").attr("x1", widthHis10 - 110).attr("y1", 10).attr("x2", widthHis10 - 80).attr("y2", 10).style("stroke", "steelblue").style("stroke-width", 3)
+        svg.append("text").attr("x", widthHis10 - 70).attr("y", 10).text("Precipitation").style("font-size", "15px").attr("alignment-baseline","middle")
 
         var x = d3.scaleTime()
           .domain(d3.extent(data, function(d) { return d3.timeParse("%Y-%m-%d")(d.date); }))
