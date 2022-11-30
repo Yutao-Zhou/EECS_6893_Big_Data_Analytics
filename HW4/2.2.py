@@ -6,20 +6,9 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 import pandas as pd
 from csv import writer, reader
-
-# The DAG object; we'll need this to instantiate a DAG
 from airflow import DAG
-
-# Operators; we need this to operate!
 from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
-# These args will get passed on to each operator
-# You can override them on a per-task basis during operator initialization
-
-
-####################################################
-# DEFINE PYTHON FUNCTIONS
-####################################################
 
 def fatch_data(**context):
     symbles = ["AAPL", "GOOGL", "META", "MSFT", "AMZN"]
@@ -57,7 +46,6 @@ def train_model(**context):
         writer_object.writerow(write)
         file.close()
 
-
 def caculate_error(**context):
     symbles = ["AAPL", "GOOGL", "META", "MSFT", "AMZN"]
     errors = []
@@ -83,10 +71,6 @@ def caculate_error(**context):
         writer_object.writerow(write)
         file.close()
     print(f"Today's error: {write}")
-
-############################################
-# DEFINE AIRFLOW DAG (SETTINGS + SCHEDULE)
-############################################
 
 default_args = {
     'owner': 'yutao',
@@ -121,12 +105,6 @@ with DAG(
     tags=['homework'],
 ) as dag:
 
-##########################################
-# DEFINE AIRFLOW OPERATORS
-##########################################
-
-    # t* examples of tasks created by instantiating operators
-
     fatch_data = PythonOperator(
         task_id='fatch_data',
         python_callable=fatch_data,
@@ -147,13 +125,6 @@ with DAG(
         retries=3,
         provide_context=True
     )
-
-
-##########################################
-# DEFINE TASKS HIERARCHY
-##########################################
-
-    # task dependencies 
 
     fatch_data >> train_model
     train_model >> caculate_error
