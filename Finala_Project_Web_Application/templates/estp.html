@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{%  block main %}
+    <div class="title">
+        <h1 style="padding-right: 10px">Practitioners: </h1>
+        <div class="big-letter" style="background-color: #6D4F5F">E</div>
+        <div class="big-letter" style="background-color: #788C5B">S</div>
+        <div class="big-letter" style="background-color: #51AAAB">T</div>
+        <div class="big-letter" style="background-color: #E5C72F">P</div>
+    </div>
+    <div class="h2" style="color: #6D4F5F;">Brief Introduction</div>
+    <hr style="border: 3px solid #6D4F5F; margin-left: 20px; margin-right: 20px">
+    <p class="pg">
+        ESFPs are lively, easy-going, innocent and straightforward, ESTPs enjoy the present rather than planning for the future. ESTPs are realistic, open-minded and tolerant. ESTPs prefer action to rambling, and when problems arise, they are happy to deal with them. They are excellent problem solvers.
+    </p>
+
+    <div class="h2" style="color: #788C5B;">Job Preference</div>
+    <hr style="border: 3px solid #788C5B; margin-left: 20px; margin-right: 20px">
+    <ul class="list">
+      <li>Preferred career field
+        <ul>
+          <li class="inner-list">Finance</li>
+          <li class="inner-list">Commerce</li>
+          <li class="inner-list">Sport</li>
+          <li class="inner-list">Entertainment Industry</li>
+          <li class="inner-list">Business</li>
+        </ul>
+      </li>
+      <li>Typical occupation
+          <ul>
+            <li class="inner-list">Entrepreneur</li>
+            <li class="inner-list">Insurance Agent</li>
+            <li class="inner-list">Civil Engineer</li>
+            <li class="inner-list">Budget Analyst</li>
+            <li class="inner-list">Promoter</li>
+            <li class="inner-list">Stock Broker</li>
+            <li class="inner-list">Sports Merchandise Salesman</li>
+            <li class="inner-list">Athletic Trainer</li>
+            <li class="inner-list">Firefighter</li>
+            <li class="inner-list">Police</li>
+            <li class="inner-list">Travel Agent</li>
+            <li class="inner-list">Coach</li>
+            <li class="inner-list">Medical Emergency Technician</li>
+          </ul>
+      </li>
+    </ul>
+    <br>
+    <div class="h2" style="color: #51AAAB;">Similar People</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/estp/donald-trump.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Donald Trump</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/estp/mike-tyson.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Mike Tyson</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/estp/captain-jack-sparrow.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Captain Jack Sparrow</h2>
+          </div>
+        </div>
+      </div>
+
+    <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/estp/epicurus.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Epicurus</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="h2" style="color: #51AAAB;">Word Cloud</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/wordcloud/ESTP.jpg') }}" alt="" style="width:50%">
+        </div>
+    </div>
+{%  endblock %}

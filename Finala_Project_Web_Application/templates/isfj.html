@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{%  block main %}
+    <div class="title">
+        <h1 style="padding-right: 10px">Dedicated Protector: </h1>
+        <div class="big-letter" style="background-color: #6D4F5F">I</div>
+        <div class="big-letter" style="background-color: #788C5B">S</div>
+        <div class="big-letter" style="background-color: #51AAAB">F</div>
+        <div class="big-letter" style="background-color: #E5C72F">J</div>
+    </div>
+    <div class="h2" style="color: #6D4F5F;">Brief Introduction</div>
+    <hr style="border: 3px solid #6D4F5F; margin-left: 20px; margin-right: 20px">
+    <p class="pg">
+        ISFJ people are loyal, dedicated and compassionate. They are sober-minded and responsible, willing to be human, and understand the feelings of others. Also very pragmatic, they like people who are peaceful and unassuming, they like to draw on a lot of factual situations, and they have a strong memory for details. They approach the entire phase of a task patiently and like things to be clear and defined.
+    </p>
+
+    <div class="h2" style="color: #788C5B;">Job Preference</div>
+    <hr style="border: 3px solid #788C5B; margin-left: 20px; margin-right: 20px">
+    <ul class="list">
+      <li>Preferred career field
+        <ul>
+          <li class="inner-list">Health Care</li>
+          <li class="inner-list">Social Service</li>
+          <li class="inner-list">Education</li>
+          <li class="inner-list">Business</li>
+          <li class="inner-list">Design</li>
+          <li class="inner-list">Art</li>
+        </ul>
+      </li>
+      <li>Typical occupation
+          <ul>
+            <li class="inner-list">Human Resource</li>
+            <li class="inner-list">Nursing Physician</li>
+            <li class="inner-list">Nutritionist</li>
+            <li class="inner-list">Librarian</li>
+            <li class="inner-list">Interior Decorator</li>
+            <li class="inner-list">Paralegal</li>
+            <li class="inner-list">Database Manager</li>
+            <li class="inner-list">Information Director</li>
+            <li class="inner-list">Business Operations Consultant</li>
+            <li class="inner-list">Factory Supervisor</li>
+            <li class="inner-list">Bookkeeper</li>
+            <li class="inner-list">Hotel Owner</li>
+            <li class="inner-list">Project Manage</li>
+          </ul>
+      </li>
+    </ul>
+    <br>
+    <div class="h2" style="color: #51AAAB;">Similar People</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/isfj/rand-paul.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Rand Paul</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/isfj/tiger-woods.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Tiger Woods</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/isfj/beyonce.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Beyoncé</h2>
+          </div>
+        </div>
+      </div>
+
+    <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/isfj/naomi-watts.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Naomi Watts</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="h2" style="color: #51AAAB;">Word Cloud</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/wordcloud/ISFJ.jpg') }}" alt="" style="width:50%">
+        </div>
+    </div>
+{%  endblock %}

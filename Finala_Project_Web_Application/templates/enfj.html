@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{%  block main %}
+    <div class="title">
+        <h1 style="padding-right: 10px">Instructive Educator: </h1>
+        <div class="big-letter" style="background-color: #6D4F5F">E</div>
+        <div class="big-letter" style="background-color: #788C5B">N</div>
+        <div class="big-letter" style="background-color: #51AAAB">F</div>
+        <div class="big-letter" style="background-color: #E5C72F">J</div>
+    </div>
+    <div class="h2" style="color: #6D4F5F;">Brief Introduction</div>
+    <hr style="border: 3px solid #6D4F5F; margin-left: 20px; margin-right: 20px">
+    <p class="pg">
+        ENFJs are warm and honest, instilling faith, charisma and a sense of justice. The initial impression of ENFJ is enthusiasm and frankness. Although all EF types can be said to be enthusiastic, the word used to describe ENFJ here is enthusiasm and frankness, because ENFJ's feelings shine on others like the sun or searchlights. And when the searchlight shines on you, everything about itself is revealed to you, and there is nothing to hide.
+    </p>
+
+    <div class="h2" style="color: #788C5B;">Job Preference</div>
+    <hr style="border: 3px solid #788C5B; margin-left: 20px; margin-right: 20px">
+    <ul class="list">
+      <li>Preferred career field
+        <ul>
+          <li class="inner-list">Media</li>
+          <li class="inner-list">Education</li>
+          <li class="inner-list">Counseling</li>
+          <li class="inner-list">Business</li>
+          <li class="inner-list">Health Care</li>
+          <li class="inner-list">Technology</li>
+        </ul>
+      </li>
+      <li>Typical occupation
+          <ul>
+            <li class="inner-list">Advertising Account Manager</li>
+            <li class="inner-list">Clinician</li>
+            <li class="inner-list">Career Planner</li>
+            <li class="inner-list">Editor</li>
+            <li class="inner-list">University Professors In Humanitie</li>
+            <li class="inner-list">Sales Manager</li>
+            <li class="inner-list">Programmer</li>
+            <li class="inner-list">Coordinator</li>
+            <li class="inner-list">Marketer</li>
+            <li class="inner-list">Journalist</li>
+            <li class="inner-list">Social Worker</li>
+            <li class="inner-list">Human Resource</li>
+          </ul>
+      </li>
+    </ul>
+    <br>
+    <div class="h2" style="color: #51AAAB;">Similar People</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/enfj/Barack-Obama.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Barack Obama</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/enfj/Martin-Luther-King-Jr.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Martin Luther King, Jr</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/enfj/Morgan-Freeman.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Morgan Freeman</h2>
+          </div>
+        </div>
+      </div>
+
+    <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/enfj/Michael-Jordan.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Michael Jordan</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="h2" style="color: #51AAAB;">Word Cloud</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/wordcloud/ENFJ.jpg') }}" alt="" style="width:50%">
+        </div>
+    </div>
+{%  endblock %}

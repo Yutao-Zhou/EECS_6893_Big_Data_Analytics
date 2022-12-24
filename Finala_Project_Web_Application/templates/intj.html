@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{%  block main %}
+    <div class="title">
+        <h1 style="padding-right: 10px">Independent Expert: </h1>
+        <div class="big-letter" style="background-color: #6D4F5F">I</div>
+        <div class="big-letter" style="background-color: #788C5B">N</div>
+        <div class="big-letter" style="background-color: #51AAAB">T</div>
+        <div class="big-letter" style="background-color: #E5C72F">J</div>
+    </div>
+    <div class="h2" style="color: #6D4F5F;">Brief Introduction</div>
+    <hr style="border: 3px solid #6D4F5F; margin-left: 20px; margin-right: 20px">
+    <p class="pg">
+        The main characteristics of INTJ are high calmness and concentration, and careful thinking. Some books refer to INTJs as specialists, because most INTJs focus on one area and then become very sophisticated, understanding every aspect of a specialty and becoming a cult figure. Personally, I think INTJ is also one of the most persistent and persevering type 16 personalities.<br>
+        <br>
+        INTJ can best be summed up as "independent". Independence is what motivates their prospects. If possible, INTJ wants everyone to be independent. This sense of independence may conflict with their simultaneous need to control their surroundings.
+        <br><br>
+    </p>
+
+    <div class="h2" style="color: #788C5B;">Job Preference</div>
+    <hr style="border: 3px solid #788C5B; margin-left: 20px; margin-right: 20px">
+    <ul class="list">
+      <li>Preferred career field
+        <ul>
+          <li class="inner-list">Commercial Finance</li>
+          <li class="inner-list">Education</li>
+            <li class="inner-list">Health and Medical Service</li>
+        </ul>
+      </li>
+      <li>Typical occupation
+          <ul>
+            <li class="inner-list">Intellectual Property Lawyer</li>
+            <li class="inner-list">Management Consultant</li>
+            <li class="inner-list">Economist</li>
+            <li class="inner-list">International Banking Staff</li>
+            <li class="inner-list">Portfolio Investment Analyst</li>
+            <li class="inner-list">Design Engineer</li>
+          </ul>
+      </li>
+    </ul>
+    <br>
+    <div class="h2" style="color: #51AAAB;">Similar People</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/intj/elon.png') }}" class="people-imag">
+          <div class="container">
+            <h2>Elon Musk</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/intj/nolan.png') }}" class="people-imag">
+          <div class="container">
+            <h2>Christopher Nolan</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/intj/ww.png') }}" class="people-imag">
+          <div class="container">
+            <h2>Walter White</h2>
+          </div>
+        </div>
+      </div>
+
+    <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/intj/gg.png') }}" class="people-imag">
+          <div class="container">
+            <h2>Gandalf the Grey</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="h2" style="color: #51AAAB;">Word Cloud</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/wordcloud/INTJ.jpg') }}" alt="" style="width:50%">
+        </div>
+    </div>
+{%  endblock %}

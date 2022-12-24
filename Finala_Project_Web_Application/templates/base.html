@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MBTI Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/base.css') }}">
+</head>
+<body>
+    <div class="navbar">
+       <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('model') }}">Model</a>
+        <a href="{{ url_for('about') }}">About</a>
+      <div class="dropdown">
+        <button class="dropbtn">Personality Types
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="{{ url_for('intj') }}">INTJ</a>
+            <a href="{{ url_for('intp') }}">INTP</a>
+            <a href="{{ url_for('entj') }}">ENTJ</a>
+            <a href="{{ url_for('entp') }}">ENTP</a>
+            <a href="{{ url_for('infj') }}">INFJ</a>
+            <a href="{{ url_for('infp') }}">INFP</a>
+            <a href="{{ url_for('enfj') }}">ENFJ</a>
+            <a href="{{ url_for('enfp') }}">ENFP</a>
+            <a href="{{ url_for('istj') }}">ISTJ</a>
+            <a href="{{ url_for('istp') }}">ISTP</a>
+            <a href="{{ url_for('estj') }}">ESTJ</a>
+            <a href="{{ url_for('estp') }}">ESTP</a>
+            <a href="{{ url_for('isfj') }}">ISFJ</a>
+            <a href="{{ url_for('isfp') }}">ISFP</a>
+            <a href="{{ url_for('esfj') }}">ESFJ</a>
+            <a href="{{ url_for('esfp') }}">ESFP</a>
+        </div>
+      </div>
+    </div>
+    {%  block main %}
+    {%  endblock %}
+</body>
+</html>

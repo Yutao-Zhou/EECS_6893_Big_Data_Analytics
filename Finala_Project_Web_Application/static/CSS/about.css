@@ -1,0 +1,158 @@
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'arial', sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: right;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #51AAAB;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #6D4F5F;
+  color: white;
+}
+
+.why-text{
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: left;
+}
+
+.column {
+  float: left;
+  width: 300px;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 20px;
+}
+
+.container {
+  padding: 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+.row{
+	border-radius: 20px;
+	width: 900px;
+	height: 350px;
+	margin: auto;
+	position: absolute;
+	top: 270px;
+	left: 30px;
+	right: 0;
+	bottom: 0;
+}
+
+.model-column {
+  float: left;
+  width: 800px;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.model-row{
+  border-radius: 20px;
+  width: 1600px;
+  height: 600px;
+  margin: auto;
+  position: absolute;
+  top: 270px;
+  left: 30px;
+  right: 0;
+  bottom: 0;
+}
+
+.model-imag
+{
+  width:100%;
+  max-height: 600px;
+}

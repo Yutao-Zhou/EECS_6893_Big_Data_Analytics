@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MBTI Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/about.css') }}">
+</head>
+<body>
+   <div class="navbar">
+       <a href="{{ url_for('index') }}">Home</a>
+       <a href="{{ url_for('model') }}">Model</a>
+       <a href="{{ url_for('about') }}">About</a>
+      <div class="dropdown">
+        <button class="dropbtn">Personality Types
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="{{ url_for('intj') }}">INTJ</a>
+            <a href="{{ url_for('intp') }}">INTP</a>
+            <a href="{{ url_for('entj') }}">ENTJ</a>
+            <a href="{{ url_for('entp') }}">ENTP</a>
+            <a href="{{ url_for('infj') }}">INFJ</a>
+            <a href="{{ url_for('infp') }}">INFP</a>
+            <a href="{{ url_for('enfj') }}">ENFJ</a>
+            <a href="{{ url_for('enfp') }}">ENFP</a>
+            <a href="{{ url_for('istj') }}">ISTJ</a>
+            <a href="{{ url_for('istp') }}">ISTP</a>
+            <a href="{{ url_for('estj') }}">ESTJ</a>
+            <a href="{{ url_for('estp') }}">ESTP</a>
+            <a href="{{ url_for('isfj') }}">ISFJ</a>
+            <a href="{{ url_for('isfp') }}">ISFP</a>
+            <a href="{{ url_for('esfj') }}">ESFJ</a>
+            <a href="{{ url_for('esfp') }}">ESFP</a>
+        </div>
+      </div>
+    </div>
+    <div class="about-section">
+        <h1>Why MBTI</h1>
+        <p class="why-text" style="padding-top: 20px">The Myers-Briggs Type Indicator (MBTI) is an introspective self-report questionnaire that indicates different psychological preferences in how people perceive the world and make decisions. Knowing MBTI can help users understand themselves and adjust the life and work according to their own personality tendencies.</p>
+        <p class="why-text">This project provide a simple prediction of Twitter user’s MBTI personality base on their tweets. It helps user understand their own communication preference and how they interact with others based on their social media post.</p>
+    </div>
+    <h1 style="text-align:center; padding: 25px">Our Team</h1>
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/sjr.png') }}" alt="Jiarong Shi" style="width:100%">
+          <div class="container">
+            <h2>Jiarong Shi</h2>
+            <p class="title">Developer</p>
+            <p class="why-text">Responsible for web design and deep learning model training</p>
+            <p class="why-text">js6132@columbia.edu</p>
+            <p><button class="button">Contact</button></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/zyt.jpg') }}" alt="Yutao Zhou" style="width:100%">
+          <div class="container">
+            <h2>Yutao Zhou</h2>
+            <p class="title">Developer</p>
+            <p class="why-text">Responsible for web design, backend and deploy to GCP</p>
+            <p class="why-text">yz4359@columbia.edu</p>
+            <p><button class="button">Contact</button></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/yqc.png') }}"  alt="Yutao Zhou" style="width:100%">
+          <div class="container">
+            <h2>Qingcheng Yu</h2>
+            <p class="title">Developer</p>
+            <p class="why-text">Responsible for data cleaning, machine learning model training</p>
+            <p class="why-text">qy2281@columbia.edu</p>
+            <p><button class="button">Contact</button></p>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

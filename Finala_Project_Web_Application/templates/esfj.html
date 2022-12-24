@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{%  block main %}
+    <div class="title">
+        <h1 style="padding-right: 10px">Gracious Host: </h1>
+        <div class="big-letter" style="background-color: #6D4F5F">E</div>
+        <div class="big-letter" style="background-color: #788C5B">S</div>
+        <div class="big-letter" style="background-color: #51AAAB">F</div>
+        <div class="big-letter" style="background-color: #E5C72F">J</div>
+    </div>
+    <div class="h2" style="color: #6D4F5F;">Brief Introduction</div>
+    <hr style="border: 3px solid #6D4F5F; margin-left: 20px; margin-right: 20px">
+    <p class="pg">
+        ESFPs are friendly, compassionate, and responsible. They are polite, popular, talkative, and eager to please others. They put the relationship with others at a very important position. They have harmonious relationships and work hard to acquire and maintain them. 
+        <br><br>
+        ESFJ type people are very realistic, they are practical, realistic, orderly, cautious, and very traditional.
+    </p>
+
+    <div class="h2" style="color: #788C5B;">Job Preference</div>
+    <hr style="border: 3px solid #788C5B; margin-left: 20px; margin-right: 20px">
+    <ul class="list">
+      <li>Preferred career field
+        <ul>
+          <li class="inner-list">Education</li>
+          <li class="inner-list">Social Servious</li>
+          <li class="inner-list">Health Care</li>
+          <li class="inner-list">Counseling</li>
+          <li class="inner-list">Business</li>
+          <li class="inner-list">Service Industry</li>
+          <li class="inner-list">Clerical</li>
+        </ul>
+      </li>
+      <li>Typical occupation
+          <ul>
+            <li class="inner-list">Sale</li>
+            <li class="inner-list">Representative</li>
+            <li class="inner-list">Retail Owner</li>
+            <li class="inner-list">Real Estate Agent</li>
+            <li class="inner-list">Veterinarian</li>
+            <li class="inner-list">Credit Counselor</li>
+            <li class="inner-list">Athletic Trainer</li>
+            <li class="inner-list">Nurses</li>
+            <li class="inner-list">Physical Therapist</li>
+            <li class="inner-list">Marketing Manager</li>
+            <li class="inner-list">Translator and Interpreter</li>
+            <li class="inner-list">Human Resources Consultant</li>
+            <li class="inner-list">Merchandising Purchaser</li>
+          </ul>
+      </li>
+    </ul>
+    <br>
+    <div class="h2" style="color: #51AAAB;">Similar People</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/esfj/hugh-jackman.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Hugh Jackman</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/esfj/ed-sheeran.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Ed Sheeran</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/esfj/prince-william.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Prince William</h2>
+          </div>
+        </div>
+      </div>
+
+    <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/esfj/ray-kroc.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Ray Croc</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="h2" style="color: #51AAAB;">Word Cloud</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/wordcloud/ESFJ.jpg') }}" alt="" style="width:50%">
+        </div>
+    </div>
+{%  endblock %}

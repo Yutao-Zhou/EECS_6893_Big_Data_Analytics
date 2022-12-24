@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MBTI Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
+</head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('model') }}">Model</a>
+        <a href="{{ url_for('about') }}">About</a>
+      <div class="dropdown">
+        <button class="dropbtn">Personality Types
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="{{ url_for('intj') }}">INTJ</a>
+            <a href="{{ url_for('intp') }}">INTP</a>
+            <a href="{{ url_for('entj') }}">ENTJ</a>
+            <a href="{{ url_for('entp') }}">ENTP</a>
+            <a href="{{ url_for('infj') }}">INFJ</a>
+            <a href="{{ url_for('infp') }}">INFP</a>
+            <a href="{{ url_for('enfj') }}">ENFJ</a>
+            <a href="{{ url_for('enfp') }}">ENFP</a>
+            <a href="{{ url_for('istj') }}">ISTJ</a>
+            <a href="{{ url_for('istp') }}">ISTP</a>
+            <a href="{{ url_for('estj') }}">ESTJ</a>
+            <a href="{{ url_for('estp') }}">ESTP</a>
+            <a href="{{ url_for('isfj') }}">ISFJ</a>
+            <a href="{{ url_for('isfp') }}">ISFP</a>
+            <a href="{{ url_for('esfj') }}">ESFJ</a>
+            <a href="{{ url_for('esfp') }}">ESFP</a>
+        </div>
+      </div>
+    </div>
+    <section>
+        <div class="main">
+            <img class="mbti" src="{{ url_for('static', filename='images/mbti.png') }}">
+            <div class="searchBox">
+                <form action="/username" method="POST">
+                    <input type="text" id="content" name="username" class="search" placeholder="Enter twitter username to get MBTI prediction" onkeydown="if(event.keyCode == '13'){$('#loading').show();}">
+                </form>
+                <div class="icons">
+                    <div><img src="{{ url_for('static', filename='images/search.png') }}"></div>
+                    <div id="loading" style="display:none;" class="loading"><img src="{{ url_for('static', filename='images/loading.gif') }}"></div>
+                </div>
+            </div>
+          <div class="flex-row">
+              <div class="big-letter" style="background-color: #6D4F5F">E</div>
+              <div class="flex-column">
+                  <div class="sub-title">Extroverts</div>
+                  <p class="sub-content-left">are energized by people, enjoy a variety of tasks, a quick pace, and are good at multitasking</p>
+              </div>
+              <div class="big-letter" style="background-color: #6D4F5F">I</div>
+              <div class="flex-column">
+                  <div class="sub-title">Introverts</div>
+                  <p class="sub-content-right">often like working alone or in small group, prefer a more deliberate pace, and like to focus on one task at a time</p>
+              </div>
+          </div>
+            <div class="flex-row">
+              <div class="big-letter" style="background-color: #788C5B">S</div>
+              <div class="flex-column">
+                  <div class="sub-title">Sensors</div>
+                  <p class="sub-content-left">are realistic people who like to focus on the facts and details, and apply common sense and experience to solve problems</p>
+              </div>
+              <div class="big-letter" style="background-color: #788C5B">N</div>
+              <div class="flex-column">
+                  <div class="sub-title">Intuitives</div>
+                  <p class="sub-content-right">prefer to focus on possibilities and the big picture, easily see patterns, and seek creative solutions to problems</p>
+              </div>
+          </div>
+            <div class="flex-row">
+              <div class="big-letter" style="background-color: #51AAAB">T</div>
+              <div class="flex-column">
+                  <div class="sub-title">Thinkers</div>
+                  <p class="sub-content-left">tend to make decisions using logical analysis, objectively weigh pros & cons, value honesty, consistency and fairness</p>
+              </div>
+              <div class="big-letter" style="background-color: #51AAAB">F</div>
+              <div class="flex-column">
+                  <div class="sub-title">Feelers</div>
+                  <p class="sub-content-right">tend to be sensitive and cooperative, and decide based on personal values and how others will be affected</p>
+              </div>
+          </div>
+            <div class="flex-row">
+              <div class="big-letter" style="background-color: #E5C72F">J</div>
+              <div class="flex-column">
+                  <div class="sub-title">Judgers</div>
+                  <p class="sub-content-left">tend to be organized and prepared, like to make and stick to plans, and are comfortable following most rules</p>
+              </div>
+              <div class="big-letter" style="background-color: #E5C72F">P</div>
+              <div class="flex-column">
+                  <div class="sub-title">Perceivers</div>
+                  <p class="sub-content-right">prefer to keep their options open, like to be able to act spontaneously, and like to be flexible with making plans</p>
+              </div>
+          </div>
+        </div>
+    </section>
+</body>
+</html>

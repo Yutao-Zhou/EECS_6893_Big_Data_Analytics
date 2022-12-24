@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{%  block main %}
+    <div class="title">
+        <h1 style="padding-right: 10px">Humble Craftsman: </h1>
+        <div class="big-letter" style="background-color: #6D4F5F">I</div>
+        <div class="big-letter" style="background-color: #788C5B">S</div>
+        <div class="big-letter" style="background-color: #51AAAB">T</div>
+        <div class="big-letter" style="background-color: #E5C72F">P</div>
+    </div>
+    <div class="h2" style="color: #6D4F5F;">Brief Introduction</div>
+    <hr style="border: 3px solid #6D4F5F; margin-left: 20px; margin-right: 20px">
+    <p class="pg">
+        ISTPs are frank, honest, and pragmatic. They are equal and fair, and they like action rather than rambling. They are unassuming, peaceful and reticent, often appear cold and aloof, and easily shy, have a natural understanding of the methods and tricks of getting things done, and are usually proficient in using tools and performing manual labor. They tend to make methodical and confidential decisions, and they simply state the facts as they see them, methodically and directly.
+    </p>
+
+    <div class="h2" style="color: #788C5B;">Job Preference</div>
+    <hr style="border: 3px solid #788C5B; margin-left: 20px; margin-right: 20px">
+    <ul class="list">
+      <li>Preferred career field
+        <ul>
+          <li class="inner-list">Service</li>
+          <li class="inner-list">Technology</li>
+          <li class="inner-list">Criminal Investigation</li>
+          <li class="inner-list">Health Care</li>
+          <li class="inner-list">Handicraft</li>
+          <li class="inner-list">Finance</li>
+          <li class="inner-list">Business</li>
+          <li class="inner-list">Trade Industry</li>
+        </ul>
+      </li>
+      <li>Typical occupation
+          <ul>
+            <li class="inner-list">Computer Programmer</li>
+            <li class="inner-list">Software Developer</li>
+            <li class="inner-list">Medical Emergency Technician</li>
+            <li class="inner-list">Business Elite</li>
+            <li class="inner-list">Business Commissioner</li>
+            <li class="inner-list">Police Officer</li>
+            <li class="inner-list">Weapons Expert</li>
+            <li class="inner-list">Firefighter</li>
+            <li class="inner-list">Customs Inspector</li>
+            <li class="inner-list">Marine Biologist</li>
+            <li class="inner-list">Economist</li>
+          </ul>
+      </li>
+    </ul>
+    <br>
+    <div class="h2" style="color: #51AAAB;">Similar People</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/istp/vladimir-putin.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Vladimir Putin</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/istp/eazy-e.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Eazy-E</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/istp/venus-williams.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Venus Williams</h2>
+          </div>
+        </div>
+      </div>
+
+    <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/istp/alan-shepard.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Alan Shepard</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="h2" style="color: #51AAAB;">Word Cloud</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/wordcloud/ISTP.jpg') }}" alt="" style="width:50%">
+        </div>
+    </div>
+{%  endblock %}

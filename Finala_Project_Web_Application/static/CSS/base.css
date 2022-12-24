@@ -1,0 +1,157 @@
+*
+{
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'arial', sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: right;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #51AAAB;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.title{
+  display: flex;
+  flex-direction: row;
+  padding: 50px 50px 50px 100px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bolder;
+  color: #333333;
+  background-color: silver;
+  align-items: center;
+}
+.big-letter
+{
+  text-align: center;
+  padding-top: 7px;
+  color: white;
+  font-size: 45px;
+  font-weight: bolder;
+  width: 65px;
+  height: 65px;
+}
+.h2{
+  margin: 20px 20px 0 20px;
+  padding: 10px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.pg{
+  color: #555555;
+  line-height: 30px;
+  font-size: 20px;
+  margin: 20px 25px 20px 25px;
+}
+.list{
+  margin: 20px;
+  color: #555555;
+  line-height: 30px;
+  font-size: 23px;
+}
+.inner-list{
+  font-size: 20px;
+}
+
+.column {
+  float: left;
+  width: 300px;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 15px;
+  text-align: center;
+}
+
+.container {
+  padding: 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.people-imag
+{
+  width:100%;
+  max-height: 320px;
+}
+
+.model-imag
+{
+  width:100%;
+  max-height: 800px;
+}
+
+.model-column {
+  float: left;
+  width: 800px;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.model-card {
+  box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+  margin: 15px;
+  text-align: center;
+}

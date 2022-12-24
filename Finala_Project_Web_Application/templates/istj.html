@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{%  block main %}
+    <div class="title">
+        <h1 style="padding-right: 10px">Meticulous Inspector: </h1>
+        <div class="big-letter" style="background-color: #6D4F5F">I</div>
+        <div class="big-letter" style="background-color: #788C5B">S</div>
+        <div class="big-letter" style="background-color: #51AAAB">T</div>
+        <div class="big-letter" style="background-color: #E5C72F">J</div>
+    </div>
+    <div class="h2" style="color: #6D4F5F;">Brief Introduction</div>
+    <hr style="border: 3px solid #6D4F5F; margin-left: 20px; margin-right: 20px">
+    <p class="pg">
+        ISTJs are quiet, serious, hard-working and responsible. They have strong concentration, orderliness and accuracy, and have a strong memory and judgment for details; ISTJs are always very traditional and conservative. Likes to state things clearly and clearly; they value necessary theory and convention, and are impatient with those who don't. Because of the above characteristics, ISTJs are often the regulators of society, so some books call them "civil servants"
+    </p>
+
+    <div class="h2" style="color: #788C5B;">Job Preference</div>
+    <hr style="border: 3px solid #788C5B; margin-left: 20px; margin-right: 20px">
+    <ul class="list">
+      <li>Preferred career field
+        <ul>
+          <li class="inner-list">Primary Education</li>
+          <li class="inner-list">Law</li>
+          <li class="inner-list">Applied Science</li>
+          <li class="inner-list">Health Care</li>
+          <li class="inner-list">Service</li>
+          <li class="inner-list">Finance</li>
+          <li class="inner-list">Business</li>
+        </ul>
+      </li>
+      <li>Typical occupation
+          <ul>
+            <li class="inner-list">Meteorologist</li>
+            <li class="inner-list">Database Administrator</li>
+            <li class="inner-list">Health Administrator</li>
+            <li class="inner-list">Financial Worker</li>
+            <li class="inner-list">Logistics Manager</li>
+            <li class="inner-list">Information Director</li>
+            <li class="inner-list">Budget Analyst</li>
+            <li class="inner-list">Medical Researcher</li>
+            <li class="inner-list">Inspector</li>
+            <li class="inner-list">Agronomist</li>
+            <li class="inner-list">Biomedical Researcher</li>
+            <li class="inner-list">Credit Analyst</li>
+          </ul>
+      </li>
+    </ul>
+    <br>
+    <div class="h2" style="color: #51AAAB;">Similar People</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/istj/george-washington.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>George Washington</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/istj/queen-elizabeth-ii.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Queen Elizabeth II</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/istj/jeff-bezos.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Jeff Bezos</h2>
+          </div>
+        </div>
+      </div>
+
+    <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/istj/henry-ford.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Henry Ford</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="h2" style="color: #51AAAB;">Word Cloud</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/wordcloud/ISTJ.jpg') }}" alt="" style="width:50%">
+        </div>
+    </div>
+{%  endblock %}

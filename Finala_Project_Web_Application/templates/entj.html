@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{%  block main %}
+    <div class="title">
+        <h1 style="padding-right: 10px">Natural Leader: </h1>
+        <div class="big-letter" style="background-color: #6D4F5F">E</div>
+        <div class="big-letter" style="background-color: #788C5B">N</div>
+        <div class="big-letter" style="background-color: #51AAAB">T</div>
+        <div class="big-letter" style="background-color: #E5C72F">J</div>
+    </div>
+    <div class="h2" style="color: #6D4F5F;">Brief Introduction</div>
+    <hr style="border: 3px solid #6D4F5F; margin-left: 20px; margin-right: 20px">
+    <p class="pg">
+        It's no accident that ENTJs are natural leaders. They love to boss people around and set plans and directions for everyone. Because they instinctively act and behave from a high perspective, they embody many of the basic qualities of a leader: enthusiasm, vision, objectivity, and conscientiousness.<br>
+        <br>
+        An ENTJ with these traits can hardly stay in power. Because they are witty and obedient, in most cases others are happy to be told what to do, and come to depend on them. ENTJ, with his talent for leadership, will never let his subordinates down.
+        <br><br>
+    </p>
+
+    <div class="h2" style="color: #788C5B;">Job Preference</div>
+    <hr style="border: 3px solid #788C5B; margin-left: 20px; margin-right: 20px">
+    <ul class="list">
+      <li>Preferred career field
+        <ul>
+          <li class="inner-list">Consulting</li>
+          <li class="inner-list">Business and finance</li>
+            <li class="inner-list">technical fields</li>
+        </ul>
+      </li>
+      <li>Typical occupation
+          <ul>
+            <li class="inner-list">Ceos</li>
+            <li class="inner-list">Management Consultant</li>
+            <li class="inner-list">Politician</li>
+            <li class="inner-list">Personal financial advisor</li>
+            <li class="inner-list">Real estate developer</li>
+            <li class="inner-list">Judge</li>
+          </ul>
+      </li>
+    </ul>
+    <br>
+    <div class="h2" style="color: #51AAAB;">Similar People</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/entj/steve_jobs.png') }}" class="people-imag">
+          <div class="container">
+            <h2>Steve Jobs</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/entj/jim_carrey.png') }}" class="people-imag">
+          <div class="container">
+            <h2>Jim Carrey</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/entj/thatcher.png') }}" class="people-imag">
+          <div class="container">
+            <h2>Margaret Thatcher</h2>
+          </div>
+        </div>
+      </div>
+
+    <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/entj/doctor_strange.png') }}" class="people-imag">
+          <div class="container">
+            <h2>Doctor Strange</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="h2" style="color: #51AAAB;">Word Cloud</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/wordcloud/ENTJ.jpg') }}" alt="" style="width:50%">
+        </div>
+    </div>
+{%  endblock %}

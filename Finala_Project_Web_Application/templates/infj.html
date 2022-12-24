@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{%  block main %}
+    <div class="title">
+        <h1 style="padding-right: 10px">Guide to Spiritual World: </h1>
+        <div class="big-letter" style="background-color: #6D4F5F">I</div>
+        <div class="big-letter" style="background-color: #788C5B">N</div>
+        <div class="big-letter" style="background-color: #51AAAB">F</div>
+        <div class="big-letter" style="background-color: #E5C72F">J</div>
+    </div>
+    <div class="h2" style="color: #6D4F5F;">Brief Introduction</div>
+    <hr style="border: 3px solid #6D4F5F; margin-left: 20px; margin-right: 20px">
+    <p class="pg">
+        INFJs live in the world of ideas. They were independent, original thinkers with strong feelings, strong principles, and upright humanity. INFJs trust their own opinions and decisions, even in the face of doubt. Some books refer to INFJs as "consultants", "writers" and "guardians," but I think it's better to call them "guides".
+        <br><br>
+        INFJ's key traits are deep, mysterious, stubborn, loyal, and driven. They may be the rarest personality type of all, but they certainly leave their mark on the world. Idealistic and principled, they aren’t content to coast through life – they want to stand up and make a difference.
+    </p>
+
+    <div class="h2" style="color: #788C5B;">Job Preference</div>
+    <hr style="border: 3px solid #788C5B; margin-left: 20px; margin-right: 20px">
+    <ul class="list">
+      <li>Preferred career field
+        <ul>
+          <li class="inner-list">Consulting</li>
+          <li class="inner-list">Education</li>
+          <li class="inner-list">Research</li>
+          <li class="inner-list">Design</li>
+        </ul>
+      </li>
+      <li>Typical occupation
+          <ul>
+            <li class="inner-list">Social Science Worker</li>
+            <li class="inner-list">Human Resource Manager</li>
+            <li class="inner-list">Art Director</li>
+            <li class="inner-list">Psychological Counselor</li>
+            <li class="inner-list">Writer</li>
+            <li class="inner-list">Mediator</li>
+            <li class="inner-list">Career Planners</li>
+            <li class="inner-list">Organizational Development Consultants</li>
+            <li class="inner-list">Editors</li>
+          </ul>
+      </li>
+    </ul>
+    <br>
+    <div class="h2" style="color: #51AAAB;">Similar People</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/infj/marie.png') }}" class="people-imag">
+          <div class="container">
+            <h2>Marie Kondo</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/infj/king.png') }}" class="people-imag">
+          <div class="container">
+            <h2>Martin Luther King</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/infj/Nelson.png') }}" class="people-imag">
+          <div class="container">
+            <h2>Nelson Mandela</h2>
+          </div>
+        </div>
+      </div>
+
+    <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/infj/snow.png') }}" class="people-imag">
+          <div class="container">
+            <h2>Jon Snow</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="h2" style="color: #51AAAB;">Word Cloud</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/wordcloud/INFJ.jpg') }}" alt="" style="width:50%">
+        </div>
+    </div>
+{%  endblock %}

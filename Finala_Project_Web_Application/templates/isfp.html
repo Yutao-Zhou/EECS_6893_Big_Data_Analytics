@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{%  block main %}
+    <div class="title">
+        <h1 style="padding-right: 10px">Quiet Artist: </h1>
+        <div class="big-letter" style="background-color: #6D4F5F">I</div>
+        <div class="big-letter" style="background-color: #788C5B">S</div>
+        <div class="big-letter" style="background-color: #51AAAB">F</div>
+        <div class="big-letter" style="background-color: #E5C72F">P</div>
+    </div>
+    <div class="h2" style="color: #6D4F5F;">Brief Introduction</div>
+    <hr style="border: 3px solid #6D4F5F; margin-left: 20px; margin-right: 20px">
+    <p class="pg">
+        ISFP is best described as an artist. They don't like publicity, and they express their deep emotions more through actions and works rather than words. They are peaceful, humble, sensitive, patient, flexible, a bit cunning and sullen, have strong personal ideas and their own values, and are unwilling to dominate and control others. Interested in what they know and feel directly from experience, they are often artistically gifted and aesthetically oriented, striving to create a beautiful and secluded environment for themselves.
+    </p>
+
+    <div class="h2" style="color: #788C5B;">Job Preference</div>
+    <hr style="border: 3px solid #788C5B; margin-left: 20px; margin-right: 20px">
+    <ul class="list">
+      <li>Preferred career field
+        <ul>
+          <li class="inner-list">Handicraft</li>
+          <li class="inner-list">Mechanic</li>
+          <li class="inner-list">Art</li>
+          <li class="inner-list">Medical Care</li>
+          <li class="inner-list">Science and Technology</li>
+          <li class="inner-list">Sale</li>
+          <li class="inner-list">Business</li>
+          <li class="inner-list">Service Industry</li>
+        </ul>
+      </li>
+      <li>Typical occupation
+          <ul>
+            <li class="inner-list">Nursing Physician</li>
+            <li class="inner-list">Dental Hygienist</li>
+            <li class="inner-list">Interior Gardener</li>
+            <li class="inner-list">Fashion Designer</li>
+            <li class="inner-list">Customer Service Representative</li>
+            <li class="inner-list">Survey and Inspector</li>
+            <li class="inner-list">Nurse</li>
+            <li class="inner-list">Marine Biologist</li>
+            <li class="inner-list">Chef</li>
+            <li class="inner-list">Administrator</li>
+            <li class="inner-list">Merchandising Planner</li>
+          </ul>
+      </li>
+    </ul>
+    <br>
+    <div class="h2" style="color: #51AAAB;">Similar People</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/isfp/pablo-picasso.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Pablo Picasso</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/isfp/michael-jackson.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Michael Jackson</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/isfp/dan-quayle.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Dan Quayle</h2>
+          </div>
+        </div>
+      </div>
+
+    <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/isfp/edith-crawley.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Edith Crawley</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="h2" style="color: #51AAAB;">Word Cloud</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/wordcloud/ISFP.jpg') }}" alt="" style="width:50%">
+        </div>
+    </div>
+{%  endblock %}

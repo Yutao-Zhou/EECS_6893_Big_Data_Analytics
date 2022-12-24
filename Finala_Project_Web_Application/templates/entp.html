@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{%  block main %}
+    <div class="title">
+        <h1 style="padding-right: 10px">Nobita's Robotic Cat: </h1>
+        <div class="big-letter" style="background-color: #6D4F5F">E</div>
+        <div class="big-letter" style="background-color: #788C5B">N</div>
+        <div class="big-letter" style="background-color: #51AAAB">T</div>
+        <div class="big-letter" style="background-color: #E5C72F">P</div>
+    </div>
+    <div class="h2" style="color: #6D4F5F;">Brief Introduction</div>
+    <hr style="border: 3px solid #6D4F5F; margin-left: 20px; margin-right: 20px">
+    <p class="pg">
+        There are many personality types of ENTP, and it is difficult to describe them in one word. Some people call them inventor, resourceful, and adventurer. In a word, they are unwilling to be lonely, optimistic, humorous, curious, fond of thinking, argumentative, creative, and unwilling to do things they think boring. I prefer to call them Nobita's "robotic cats".
+        <br><br>
+        ENTP is a person with the Extraverted, Intuitive, Thinking, and Prospecting personality traits. They tend to be bold and creative, deconstructing and rebuilding ideas with great mental agility. They pursue their goals vigorously despite any resistance they might encounter.
+    </p>
+
+    <div class="h2" style="color: #788C5B;">Job Preference</div>
+    <hr style="border: 3px solid #788C5B; margin-left: 20px; margin-right: 20px">
+    <ul class="list">
+      <li>Preferred career field
+        <ul>
+          <li class="inner-list">Entrepreneurship</li>
+          <li class="inner-list">Public relation</li>
+          <li class="inner-list">Politic</li>
+          <li class="inner-list">Investment</li>
+        </ul>
+      </li>
+      <li>Typical occupation
+          <ul>
+            <li class="inner-list">Entrepreneur</li>
+            <li class="inner-list">Inventor</li>
+            <li class="inner-list">Investment banker</li>
+            <li class="inner-list">Venture capitalist</li>
+            <li class="inner-list">Advertising copywriter</li>
+            <li class="inner-list">Talk show host</li>
+            <li class="inner-list">Advertising creative director</li>
+            <li class="inner-list">Actor</li>
+            <li class="inner-list">Strategic planner</li>
+          </ul>
+      </li>
+    </ul>
+    <br>
+    <div class="h2" style="color: #51AAAB;">Similar People</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/entp/Mark_Twain.png') }}" class="people-imag">
+          <div class="container">
+            <h2>Mark Twain</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/entp/adam.png') }}" class="people-imag">
+          <div class="container">
+            <h2>Adam Savage</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/entp/TomHanks.png') }}" class="people-imag">
+          <div class="container">
+            <h2>Tom Hanks</h2>
+          </div>
+        </div>
+      </div>
+
+    <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/entp/Jacksparrow.png') }}" class="people-imag">
+          <div class="container">
+            <h2>Captain Jack Sparrow</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="h2" style="color: #51AAAB;">Word Cloud</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/wordcloud/ENTP.jpg') }}" alt="" style="width:50%">
+        </div>
+    </div>
+{%  endblock %}

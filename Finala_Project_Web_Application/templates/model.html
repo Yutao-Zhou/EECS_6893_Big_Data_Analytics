@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{%  block main %}
+    <div class="title">
+        <h1 style="padding-right: 10px">Model and Dataset</h1>
+    </div>
+    <div class="h2" style="color: #6D4F5F;">Our Model</div>
+    <hr style="border: 3px solid #6D4F5F; margin-left: 20px; margin-right: 20px">
+    <p class="pg">
+        Base on our experiment, we choose to use LogisticRegression as our model. We used MBTI dataset from kaggle to train our model. In order to fit the format of the MBTI dataset, we need to filter punctuation, stopwords, and emoji in the original tweets Then implement lemmatization to convert tweets to the normal format (no state of affairs).<br>
+
+        Data preprocessing and feature extraction are necessary for Twitter streaming data.  Moreover, the samples in the dataset distribute unbalanced, and some of the features only contain a few records. Therefore, we use oversampling and undersampling to reconstruct the dataset to make it balanced. The over-sampling technique SMOTE is used to duplicate these results for a more balanced amount of positive results in training. Figure 1 is the distribution of the original dataset, and Figure 2 is the over-sampling dataset.
+    </p>
+
+    <div class="h2" style="color: #6D4F5F;">Our Dataset</div>
+    <hr style="border: 3px solid #6D4F5F; margin-left: 20px; margin-right: 20px">
+    <p class="pg">
+        The MBTI personality dataset is provided by Kaggle. It contains approximately 106k records of preprocessed posts and their authors' personality types. Every post of the record is equal sized and has 500 words in length. This dataset was collected from two different places (Reddit and PersonalityCafe forum) by Dylan Storey and Mitchell Jolly and delivered to a CSV file. Detail about our data set is as follow:
+    </p>
+    <br>
+    <div class="h2" style="color: #51AAAB;">Technical Details</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="model-row">
+      <div class="model-column">
+          <div class="card">
+            <img src="{{ url_for('static', filename='images/model/before_dataset.png') }}" class="model-imag">
+            <div class="container">
+              <h2>Original MBTI dataset</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="model-column">
+          <div class="card">
+            <img src="{{ url_for('static', filename='images/model/after_dataset.png') }}" class="model-imag">
+            <div class="container">
+              <h2>Balanced MBTI dataset</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="model-column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/model/model_comparision.png') }}" class="model-imag">
+          <div class="container">
+            <h2>Comparision Between Models</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="model-column">
+          <div class="card">
+            <img src="{{ url_for('static', filename='images/model/after_result.png') }}" class="model-imag">
+            <div class="container">
+              <h2>Model Accuracy Matrix</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+{%  endblock %}

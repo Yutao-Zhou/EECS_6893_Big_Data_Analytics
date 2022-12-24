@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{%  block main %}
+    <div class="title">
+        <h1 style="padding-right: 10px">Indispensable Treasure: </h1>
+        <div class="big-letter" style="background-color: #6D4F5F">E</div>
+        <div class="big-letter" style="background-color: #788C5B">S</div>
+        <div class="big-letter" style="background-color: #51AAAB">F</div>
+        <div class="big-letter" style="background-color: #E5C72F">P</div>
+    </div>
+    <div class="h2" style="color: #6D4F5F;">Brief Introduction</div>
+    <hr style="border: 3px solid #6D4F5F; margin-left: 20px; margin-right: 20px">
+    <p class="pg">
+        ESFPs are outgoing, caring, flexible, and live in the moment. They are enthusiasm in daily life, and are pashionate about exciting experience. They love to explore the unknows, and are adpative to unexpected. They are very social and would encourage others to join their activities.
+        <br><br>
+        They love to express themselfs and are very good at making everyone laught. They are excited and soulful in all situations. But, when they are down they would influence others' moode.
+    </p>
+
+    <div class="h2" style="color: #788C5B;">Job Preference</div>
+    <hr style="border: 3px solid #788C5B; margin-left: 20px; margin-right: 20px">
+    <ul class="list">
+      <li>Preferred career field
+        <ul>
+          <li class="inner-list">Education</li>
+          <li class="inner-list">Social Servious</li>
+          <li class="inner-list">Health Care</li>
+          <li class="inner-list">Entertainment Industry</li>
+          <li class="inner-list">Business</li>
+          <li class="inner-list">Service Industry</li>
+        </ul>
+      </li>
+      <li>Typical occupation
+          <ul>
+            <li class="inner-list">Early Childhood Educator</li>
+            <li class="inner-list">Public Relations Professionals</li>
+            <li class="inner-list">Labor Relations Mediator</li>
+            <li class="inner-list">Retail Manager</li>
+            <li class="inner-list">Merchandising Planner</li>
+            <li class="inner-list">Promoter</li>
+            <li class="inner-list">Team Trainer</li>
+            <li class="inner-list">Performer</li>
+            <li class="inner-list">Social Worker</li>
+            <li class="inner-list">Dentist</li>
+            <li class="inner-list">Financier</li>
+            <li class="inner-list">Social Worker</li>
+            <li class="inner-list">Salesperson</li>
+          </ul>
+      </li>
+    </ul>
+    <br>
+    <div class="h2" style="color: #51AAAB;">Similar People</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/esfp/ronald-reagan.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Ronald Reagan</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/esfp/justin-bieber.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Justin Bieber</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/esfp/will-smith.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Will Smith</h2>
+          </div>
+        </div>
+      </div>
+
+    <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/esfp/magic-johnson.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Magic Johnson</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="h2" style="color: #51AAAB;">Word Cloud</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/wordcloud/ESFP.jpg') }}" alt="" style="width:50%">
+        </div>
+    </div>
+{%  endblock %}

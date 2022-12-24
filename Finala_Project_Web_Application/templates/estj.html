@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{%  block main %}
+    <div class="title">
+        <h1 style="padding-right: 10px">Nature Manager: </h1>
+        <div class="big-letter" style="background-color: #6D4F5F">E</div>
+        <div class="big-letter" style="background-color: #788C5B">S</div>
+        <div class="big-letter" style="background-color: #51AAAB">T</div>
+        <div class="big-letter" style="background-color: #E5C72F">J</div>
+    </div>
+    <div class="h2" style="color: #6D4F5F;">Brief Introduction</div>
+    <hr style="border: 3px solid #6D4F5F; margin-left: 20px; margin-right: 20px">
+    <p class="pg">
+        ESTJs are good at getting things done; they like to manipulate situations and make things happen; they are responsible, hardworking, and keep their promises; they like to be organized and can remember and organize many details. They systematically set out to reach their goals in a timely manner and as efficiently as possible. They live by set rules, so they are persistent and dependable. They tend to be traditional and interested in maintaining existing institutions.
+    </p>
+
+    <div class="h2" style="color: #788C5B;">Job Preference</div>
+    <hr style="border: 3px solid #788C5B; margin-left: 20px; margin-right: 20px">
+    <ul class="list">
+      <li>Preferred career field
+        <ul>
+          <li class="inner-list">Marketing</li>
+          <li class="inner-list">Science and Technology</li>
+          <li class="inner-list">Natural Physics</li>
+          <li class="inner-list">Service Industry</li>
+          <li class="inner-list">Management</li>
+        </ul>
+      </li>
+      <li>Typical occupation
+          <ul>
+            <li class="inner-list">Military Officer</li>
+            <li class="inner-list">Chief Information Officer</li>
+            <li class="inner-list">Real Estate Developer</li>
+            <li class="inner-list">Budget Analyst</li>
+            <li class="inner-list">Health Administrator</li>
+            <li class="inner-list">Pharmacist</li>
+            <li class="inner-list">Sports Merchandise Salesman</li>
+            <li class="inner-list">Credit Counselor</li>
+            <li class="inner-list">Insurance Agent</li>
+            <li class="inner-list">Project Manager</li>
+            <li class="inner-list">Database Manager</li>
+            <li class="inner-list">Information Director</li>
+            <li class="inner-list">Stock Broker</li>
+          </ul>
+      </li>
+    </ul>
+    <br>
+    <div class="h2" style="color: #80AAAB;">Detailed Graphs</div>
+    <hr style="border: 3px solid #80AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/estj/andrew-jackson.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Andrew Jackson</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/estj/steve-ballmer.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Steve Ballmer</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/estj/paul.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Paul the Apostle</h2>
+          </div>
+        </div>
+      </div>
+
+    <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/estj/daisy-ridley.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Daisy Ridley</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="h2" style="color: #51AAAB;">Word Cloud</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/wordcloud/ESTJ.jpg') }}" alt="" style="width:50%">
+        </div>
+    </div>
+{%  endblock %}

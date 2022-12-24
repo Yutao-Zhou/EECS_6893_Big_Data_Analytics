@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{%  block main %}
+    <div class="title">
+        <h1 style="padding-right: 10px">Thoughtful Scholar: </h1>
+        <div class="big-letter" style="background-color: #6D4F5F">I</div>
+        <div class="big-letter" style="background-color: #788C5B">N</div>
+        <div class="big-letter" style="background-color: #51AAAB">T</div>
+        <div class="big-letter" style="background-color: #E5C72F">P</div>
+    </div>
+    <div class="h2" style="color: #6D4F5F;">Brief Introduction</div>
+    <hr style="border: 3px solid #6D4F5F; margin-left: 20px; margin-right: 20px">
+    <p class="pg">
+        INTPs are free creatives, fast-moving, esoteric scholars who are easily distracted and endlessly creative without a break in their minds. Their preference for and deep understanding of abstract concepts leads them to deliberately engage in any work that is creative and challenging. They are calm, easygoing, rational, and mostly slow.<br>
+        <br>
+        With the Introverted, Intuitive, Thinking, and Judging personality traits, these thoughtful tacticians love perfecting the details of life, applying creativity and rationality to everything they do. Their inner world is often a private, complex one.
+        <br><br>
+    </p>
+
+    <div class="h2" style="color: #788C5B;">Job Preference</div>
+    <hr style="border: 3px solid #788C5B; margin-left: 20px; margin-right: 20px">
+    <ul class="list">
+      <li>Preferred career field
+        <ul>
+          <li class="inner-list">Computer application and development</li>
+          <li class="inner-list">Theoretical research</li>
+            <li class="inner-list">Academic field</li>
+        </ul>
+      </li>
+      <li>Typical occupation
+          <ul>
+            <li class="inner-list">Architect</li>
+            <li class="inner-list">Computer Software developer</li>
+            <li class="inner-list">Venture Capitalist</li>
+            <li class="inner-list">Financial Analyst</li>
+            <li class="inner-list">University Professor</li>
+            <li class="inner-list">Neurologist</li>
+          </ul>
+      </li>
+    </ul>
+    <br>
+    <div class="h2" style="color: #51AAAB;">Similar People</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/intp/bill_gates.png') }}" class="people-imag">
+          <div class="container">
+            <h2>Bill Gates</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/intp/Kristen_Stewart_in_2022.png') }}" class="people-imag">
+          <div class="container">
+            <h2>Kristen Stewart</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/intp/einstein.png') }}" class="people-imag">
+          <div class="container">
+            <h2>Albert Einstein</h2>
+          </div>
+        </div>
+      </div>
+
+    <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/intp/Avicii_2014_003.png') }}" class="people-imag">
+          <div class="container">
+            <h2>Avicii</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="h2" style="color: #51AAAB;">Word Cloud</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/wordcloud/INTP.jpg') }}" alt="" style="width:50%">
+        </div>
+    </div>
+{%  endblock %}

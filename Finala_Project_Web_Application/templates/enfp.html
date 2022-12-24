@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{%  block main %}
+    <div class="title">
+        <h1 style="padding-right: 10px">Dream Catcher: </h1>
+        <div class="big-letter" style="background-color: #6D4F5F">E</div>
+        <div class="big-letter" style="background-color: #788C5B">N</div>
+        <div class="big-letter" style="background-color: #51AAAB">F</div>
+        <div class="big-letter" style="background-color: #E5C72F">P</div>
+    </div>
+    <div class="h2" style="color: #6D4F5F;">Brief Introduction</div>
+    <hr style="border: 3px solid #6D4F5F; margin-left: 20px; margin-right: 20px">
+    <p class="pg">
+        ENFPs are enthusiastic and full of new ideas. They are optimistic, natural, creative and confident, with original ideas and a strong sense of possibility. For ENFPs, life is an exciting drama. Because ENFPs are interested in possibilities, they understand the deep meaning in all things and enjoy the existence of many alternatives. They are insightful and good observers, noticing anything outside the norm. ENFPs are curious, and they prefer understanding to judgment.
+    </p>
+
+    <div class="h2" style="color: #788C5B;">Job Preference</div>
+    <hr style="border: 3px solid #788C5B; margin-left: 20px; margin-right: 20px">
+    <ul class="list">
+      <li>Preferred career field
+        <ul>
+          <li class="inner-list">Creativity</li>
+          <li class="inner-list">Art</li>
+          <li class="inner-list">Education</li>
+          <li class="inner-list">Counseling</li>
+          <li class="inner-list">Research</li>
+          <li class="inner-list">Religion</li>
+          <li class="inner-list">Health</li>
+          <li class="inner-list">Technology</li>
+        </ul>
+      </li>
+      <li>Typical occupation
+          <ul>
+            <li class="inner-list">Trainer</li>
+            <li class="inner-list">Human Resource</li>
+            <li class="inner-list">Social Science Worker</li>
+            <li class="inner-list">Team Building Consultant</li>
+            <li class="inner-list">Career Planner</li>
+            <li class="inner-list">Editor</li>
+            <li class="inner-list">Art Director</li>
+            <li class="inner-list">Architect</li>
+            <li class="inner-list">Fashion Designer</li>
+            <li class="inner-list">Journalist</li>
+            <li class="inner-list">Legal Mediator</li>
+            <li class="inner-list">Physician</li>
+            <li class="inner-list">Psychological Counselor</li>
+            <li class="inner-list">Consultant</li>
+          </ul>
+      </li>
+    </ul>
+    <br>
+    <div class="h2" style="color: #51AAAB;">Similar People</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/enfp/ellen-degeneres.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Ellen Degeneres</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/enfp/michio-kaku.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Michio Kaku</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/enfp/jerry-rice.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Jerry Rice</h2>
+          </div>
+        </div>
+      </div>
+
+    <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/enfp/ozzy-osbourne.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>Ozzy Osbourne</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="h2" style="color: #51AAAB;">Word Cloud</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/wordcloud/ENFP.jpg') }}" alt="" style="width:50%">
+        </div>
+    </div>
+{%  endblock %}

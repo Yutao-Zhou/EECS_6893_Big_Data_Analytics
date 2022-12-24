@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{%  block main %}
+    <div class="title">
+        <h1 style="padding-right: 10px">Perfectionism Bosom Friend: </h1>
+        <div class="big-letter" style="background-color: #6D4F5F">I</div>
+        <div class="big-letter" style="background-color: #788C5B">N</div>
+        <div class="big-letter" style="background-color: #51AAAB">F</div>
+        <div class="big-letter" style="background-color: #E5C72F">P</div>
+    </div>
+    <div class="h2" style="color: #6D4F5F;">Brief Introduction</div>
+    <hr style="border: 3px solid #6D4F5F; margin-left: 20px; margin-right: 20px">
+    <p class="pg">
+        The INFP, the confidant, can also be called a "healer," a "visionary," or a "philosopher," and several important traits of the INFP include shyness, sensitivity, quietness, perfectionism, and low self-esteem. INFP values inner harmony above all else. They are sensitive, idealistic, loyal, have a strong sense of honor for their personal values, strong personal beliefs, and the spirit of dedication to a cause that they consider worthy.
+        <br><br>
+        They are aloof and reserved about the outside world, but INFPs care deeply about the inside. They are compassionate, understanding, and sensitive to the feelings of others. Except when their values are threatened, they always avoid conflict and have no interest in forcing or dominating others. Infps often prefer to express their feelings in writing rather than verbally.
+    </p>
+
+    <div class="h2" style="color: #788C5B;">Job Preference</div>
+    <hr style="border: 3px solid #788C5B; margin-left: 20px; margin-right: 20px">
+    <ul class="list">
+      <li>Preferred career field
+        <ul>
+          <li class="inner-list">Education</li>
+          <li class="inner-list">Religion</li>
+          <li class="inner-list">Health Care</li>
+          <li class="inner-list">Technology</li>
+          <li class="inner-list">Creation</li>
+          <li class="inner-list">Art</li>
+        </ul>
+      </li>
+      <li>Typical occupation
+          <ul>
+            <li class="inner-list">Human Resource Worker</li>
+            <li class="inner-list">Social Science Worker</li>
+            <li class="inner-list">Fashion Designer</li>
+            <li class="inner-list">Journalist</li>
+            <li class="inner-list">Interpreter</li>
+            <li class="inner-list">Entertainer</li>
+            <li class="inner-list">Legal Mediator</li>
+            <li class="inner-list">Chiropractor</li>
+            <li class="inner-list">Psychological Counselor</li>
+            <li class="inner-list">Psychologist</li>
+          </ul>
+      </li>
+    </ul>
+    <br>
+    <div class="h2" style="color: #51AAAB;">Similar People</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/infp/shakespeare.jpg') }}" class="people-imag">
+          <div class="container">
+            <h2>William Shakespeare</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/infp/tom.png') }}" class="people-imag">
+          <div class="container">
+            <h2>Tom Hiddleston</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/infp/alicia.png') }}" class="people-imag">
+          <div class="container">
+            <h2>Alicia Keys</h2>
+          </div>
+        </div>
+      </div>
+
+    <div class="column">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/infp/Frodo.png') }}" class="people-imag">
+          <div class="container">
+            <h2>Frodo Baggins</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="h2" style="color: #51AAAB;">Word Cloud</div>
+    <hr style="border: 3px solid #51AAAB; margin-left: 20px; margin-right: 20px">
+    <div class="row">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/wordcloud/INFP.jpg') }}" alt="" style="width:50%">
+        </div>
+    </div>
+{%  endblock %}
